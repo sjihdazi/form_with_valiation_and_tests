@@ -15,7 +15,7 @@ export default defineConfig({
     quasar({
       autoImportComponentCase: 'kebab',
       sassVariables: 'src/quasar-variables.sass'
-    })
+    }),
   ],
   resolve: {
     alias: {
