@@ -12,7 +12,7 @@
     />
     <div id="password-error" data-name="password-error" color="red">{{ errors.password }}</div>
 
-    <q-btn class="q-mt-md" type="submit">Submit</q-btn>
+    <q-btn class="q-mt-md" type="submit" label="Submit" data-name="submit-button" />
   </form>
 </template>
 
@@ -35,7 +35,7 @@ const [email, emailAttrs] = defineField('email')
 const [password, passwordAttrs] = defineField('password')
 
 const onSubmit = handleSubmit(async (values) => {
-  console.log(values)
-  await emit('success')
+  await console.log(values)
+  emit('success')
 })
 </script>

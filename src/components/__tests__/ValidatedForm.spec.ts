@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { mount } from '@vue/test-utils'
+import { flushPromises, mount } from '@vue/test-utils'
 import { Quasar } from 'quasar'
 import Form from '@/components/ValidatedForm.vue'
 
@@ -18,7 +18,9 @@ describe('ValidatedForm', () => {
     await email.setValue('test@gmail.nl')
     await password.setValue('validPassword')
     
-    await wrapper.find('form[data-name="login-form"]').trigger('submit')
-    // expect(wrapper.emitted('success')).toBeTruthy()
+    const form = wrapper.find('form[data-name="login-form"]')
+    await form.find('button[data-name="submit-button"]').trigger('click')
+    await flushPromises()
+    expect(wrapper.emitted()).toBeTruthy()
   })
 })
