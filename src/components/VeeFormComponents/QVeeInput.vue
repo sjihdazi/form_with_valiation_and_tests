@@ -4,13 +4,9 @@
 <script setup lang="ts">
 import { useField } from 'vee-validate'
 const props = defineProps({
-  modelValue: String,
   name: { type: String, required: true },
   label: { type: String, required: true }
 })
 
-const { value, errorMessage } = useField<string | number | null | undefined>(
-  () => props.name,
-  undefined
-)
+const { value, errorMessage } = useField<string | number | null | undefined>(props.name, undefined)
 </script>
